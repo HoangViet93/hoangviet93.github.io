@@ -3,7 +3,7 @@ permalink: /blog/:title
 
 
 # My variables
-name: My Blog
+name: vietht
 description: A Jekyll Theme
 google_verification: null
 
@@ -25,3 +25,6 @@ kramdown:
   input: GFM
   hard_wrap: false
 highlighter: rouge
+
+pygments_options:
+  tabsize: 2
