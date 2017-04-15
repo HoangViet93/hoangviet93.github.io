@@ -33,13 +33,6 @@ sudo apt-get install samba
 sudo apt-get install vim
 ````
 
-```c
-int main(void)
-{
-    printf("hello-world\n");
-}
-````
-
 ## 2.2.Remote access tới máy ảo ubuntu 
 Ở bước này ta sẽ access tới máy ảo dùng ssh ubuntu, máy ảo phải được config network ở mode NAT hoặc bridge. Ta cần lấy địa chỉ ip 
 của máy ảo. Có 2 interface lo là card loopback có địa chỉ localhost nên ta lấy địa chỉ của interface ens33.
@@ -64,13 +57,14 @@ lo        Link encap:Local Loopback
           collisions:0 txqueuelen:1 
           RX bytes:21996 (21.9 KB)  TX bytes:21996 (21.9 KB)
 ````
-Địa chỉ ip của máy ảo là 192.168.110.130. Ta mở xshell 5 lên và ssh vào địa chỉ này.
+Địa chỉ ip của máy ảo là 192.168.110.130. Ta mở xshell 5 lên và ssh vào địa chỉ này. Hãy chắc chắn rằng bạn ping thông giữa
+ubuntu và window.
 
 ````
 ssh vietht@192.168.110.130
 ````
 
-Đôi khi ta không thể ssh tới địa chỉ này và xshell thì đơ luôn. Chỉ cần mở máy ảo và restart ssh daemon.
+> Đôi khi ta không thể ssh tới địa chỉ này và xshell thì đơ luôn. Chỉ cần mở máy ảo và restart ssh daemon.
 ````
 sudo service ssh restart
 ````
@@ -78,6 +72,8 @@ hoặc add rules để accept tất cả các traffic đến máy ảo.
 ````
 iptables -I INPUT -j ACCEPT
 ```` 
+
+![]({{ site.url }}/images/xshell.png){: .center-image }
 
 ## 2.3.Share file giữa máy ảo và window 
 Bây giờ ta sẽ setup samba để share file system giữa window và ubuntu, bước này nhằm mục đích cho phép ta dễ dàng chỉnh sửa file system của linux trên window. <br>
